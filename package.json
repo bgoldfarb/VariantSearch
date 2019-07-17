@@ -1,0 +1,33 @@
+{
+  "name": "variant-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "concurrently": "^3.6.1",
+    "express": "^4.16.2",
+    "node-fetch": "^2.6.0",
+    "node-fetch-polyfill": "^2.0.6",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0"
+  },
+  "scripts": {
+    "client-install": "cd client && npm install",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "mocha --require babel-register tests/*.js --exit"
+  },
+  "engines": {
+    "node": "9.x"
+  }
+}
