@@ -37,5 +37,4 @@ it('should render the table header correctly with Capitalization', () => {
 it('should render the correct table data when passed in as props', () => {
   expect(wrapper.find('td').at(0).text()).to.equal('stuff')
   expect(wrapper.find('td').at(1).text()).to.equal('nucChange')
-
 })

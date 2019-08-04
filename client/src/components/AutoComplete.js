@@ -10,6 +10,7 @@ export default class AutoComplete extends Component {
             suggestions: [],
             text: ''
         }
+        this.renderSuggestion = this.renderSuggestion.bind(this)
     }
 
  

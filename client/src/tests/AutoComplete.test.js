@@ -36,6 +36,14 @@ it('should call the updateTable function twice if button is clicked twice', () =
     expect(wrapper.find('li').hasClass('suggestion')).to.be.true
 });
 
-
+it('should call the renderSuggestion once', () => {
+  const wrapper = shallow(<AutoComplete />);
+  let mySpy = spy(wrapper.instance(), 'renderSuggestion')
+  wrapper.setState({
+    text: 'AP'
+  })
+  expect(mySpy).to.have.been.calledOnce
+  mySpy.restore()
+})
 
 
