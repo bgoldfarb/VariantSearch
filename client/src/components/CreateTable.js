@@ -1,26 +1,19 @@
 import React, { Component } from 'react'
 import '../styles/table.css'
 
-class CreateTable extends Component {
-   constructor(props) {
-      super(props) 
-      this.state = {
-         geneInfo: [
-            { gene: '', 
-              nucChange: '', 
-              proChange: '', 
-              alias: '',
-              region: '',
-              repClass: '',
-              lastEval: '',
-              lastUpdated: '',
-              moreInfo: ''
-            }
-         ]
-      }
-   }
+export default function CreateTable(props){
+   const geneInfo = [{ gene: '', 
+   nucChange: '', 
+   proChange: '', 
+   alias: '',
+   region: '',
+   repClass: '',
+   lastEval: '',
+   lastUpdated: '',
+   moreInfo: ''
+ }]
 
-   renderTableHeader = () => {
+   const renderTableHeader = () => {
     let header = ['Gene', 'Nucleotide Change', 'Protein Change',
      'Alias', 'Region', 'Reported Classification', 'Last Evaluated',
       'Last Updated', 'More Info']
@@ -29,36 +22,32 @@ class CreateTable extends Component {
     })
  }
 
- renderTableData = () => {
-    return this.state.geneInfo.map((geneInfo, index) => {
+ const renderTableData = () => {
+    return geneInfo.map((geneInfo, index) => {
        return (
           <tr key={index}>
-             <td>{this.props.gene}</td>
-             <td>{this.props.nucChange}</td>
-             <td>{this.props.proChange}</td>
-             <td>{this.props.alias}</td>
-             <td>{this.props.region}</td>
-             <td>{this.props.repClass}</td>
-             <td>{this.props.lastEval}</td>
-             <td>{this.props.lastUpdated}</td>
-             <td>{this.props.moreInfo}</td>
+             <td>{ props.gene}</td>
+             <td>{ props.nucChange}</td>
+             <td>{ props.proChange}</td>
+             <td>{ props.alias}</td>
+             <td>{ props.region}</td>
+             <td>{ props.repClass}</td>
+             <td>{ props.lastEval}</td>
+             <td>{ props.lastUpdated}</td>
+             <td>{ props.moreInfo}</td>
           </tr>
        )
     })
  }
-
- render() {
       return (
          <div className="table-variants">
             <table id='variants'>
                <tbody>
-                  <tr>{this.renderTableHeader()}</tr>
-                  {this.renderTableData()}
+                  <tr>{renderTableHeader()}</tr>
+                  {renderTableData()}
                </tbody>
             </table>
          </div>
       )
-   }
 }
 
-export default CreateTable
